@@ -5,7 +5,7 @@ from quaternion import from_rotation_matrix, quaternion
 from rlbench.environment import Environment
 from rlbench.action_modes import ArmActionMode, ActionMode
 from rlbench.observation_config import ObservationConfig
-from rlbench.tasks import StackCups, StackBlocks, BlockPyramid, SweepToDustpan
+from rlbench.tasks import *
 
 def skew(x):
     return np.array([[0, -x[2], x[1]],
@@ -66,7 +66,7 @@ class NoisyObjectPoseSensor:
 if __name__ == "__main__":
     action_mode = ActionMode(ArmActionMode.DELTA_EE_POSE) # See rlbench/action_modes.py for other action modes
     env = Environment(action_mode, '', ObservationConfig(), False)
-    task = env.get_task(BlockPyramid) # available tasks: StackCups, StackBlocks, BlockPyramid, SweepToDustpan
+    task = env.get_task(StackBlocks) # available tasks: EmptyContainer, PlayJenga, PutGroceriesInCupboard, SetTheTable
     agent = RandomAgent()
     obj_pose_sensor = NoisyObjectPoseSensor(env)
    
