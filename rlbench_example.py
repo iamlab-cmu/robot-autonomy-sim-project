@@ -87,7 +87,7 @@ if __name__ == "__main__":
         action = agent.act(obs)
         obs, reward, terminate = task.step(action)
 
-        if terminate:
-            break
+        # if terminate:
+        #     break
 
     env.shutdown()
